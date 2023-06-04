@@ -1,0 +1,26 @@
+on:
+  # see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  schedule:
+    - cron: "0 19 * * *"
+
+
+jobs:
+
+  hoyolab-checkin:
+
+    name: "Hoyolab daily check-in"
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Hoyolab check-in (Account 1)"
+        uses: codemasher/hoyolab-daily-checkin-action@main
+        with:
+          # see get-token.js
+          cookie: ${{ secrets.ACCOUNT1 }}
+          genshin: true
+          honkai3rd: true
+          starrail: true
+          tearsofthemis: false
