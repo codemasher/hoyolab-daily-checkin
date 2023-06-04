@@ -1,11 +1,12 @@
 on:
+  push:
+    branches:
+      - main
   # see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
     - cron: "0 19 * * *"
 
-
 jobs:
-
   hoyolab-checkin:
 
     name: "Hoyolab daily check-in"
@@ -20,7 +21,18 @@ jobs:
         with:
           # see get-token.js
           cookie: ${{ secrets.ACCOUNT1 }}
+          language: 'en-us'
           genshin: true
           honkai3rd: true
           starrail: true
+          tearsofthemis: false
+
+      - name: "Hoyolab check-in (Account 2)"
+        uses: codemasher/hoyolab-daily-checkin-action@main
+        with:
+          cookie: ${{ secrets.ACCOUNT2 }}
+          language: 'en-us'
+          genshin: true
+          honkai3rd: false
+          starrail: false
           tearsofthemis: false
