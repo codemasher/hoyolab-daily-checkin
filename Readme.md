@@ -47,7 +47,7 @@ ltuid=000000000; ltoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;
 Since the credentials are sensitive information, we don't want them committed to the public main branch, so we will to add them as repository secrets instead.
 GitHub will automatically remove anything stored as repo secret from all logs and output so that sensitive data won't get leaked.
 
-Go to the [repository secrets settings **(R)**](./settings/secrets/actions), click "New repository secret", 
+Go to the [repository secrets settings **(R)**](../../settings/secrets/actions), click "New repository secret", 
 enter a descriptive name, paste the token from the previous step into the text box below and save it.
 
 <p align="center">
@@ -58,7 +58,7 @@ It's important that you *do not log out from the Hoyolab account* - logging out 
 The token may expire, in which case you also need to repeat the procedure.
 
 #### Edit the workflow file
-Open the [workflow file **(R)**](./blob/main/.github/workflows/checkin.yml) in your local editor/IDE or in [the web-editor **(R)**](./edit/main/.github/workflows/checkin.yml) and start editing!
+Open the [workflow file **(R)**](../../blob/main/.github/workflows/checkin.yml) in your local editor/IDE or in [the web-editor **(R)**](../../edit/main/.github/workflows/checkin.yml) and start editing!
 The most basic [workflow](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) would look like this:
 ```yml
 on:
@@ -92,7 +92,7 @@ That's easy enough to understand, no? You will need to set `true` for each game 
 If you want to check-in for more accounts, you need to duplicate the `Hoyolab check-in (Account X)` step and add secrets for each account.
 (Just be careful with the indentation, [YAML](https://en.wikipedia.org/wiki/YAML) is *very* picky about that...)
 
-When you're done editing, save/commit the file and head over to the [actions tab **(R)**](./actions/workflows/checkin.yml) where a new workflow run should pop up.
+When you're done editing, save/commit the file and head over to the [actions tab **(R)**](../../actions/workflows/checkin.yml) where a new workflow run should pop up.
 
 <p align="center">
 	<img alt="The developer console" style="width: 500px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
