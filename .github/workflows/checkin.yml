@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: "Hoyolab check-in (Account 1)"
-        uses: codemasher/hoyolab-daily-checkin-action@v1
+        uses: codemasher/hoyolab-daily-checkin-action@1
         with:
           cookie: ${{ secrets.ACCOUNT1 }} # see get-token.js
           genshin: true
@@ -39,7 +39,7 @@ jobs:
 
       # you can safely remove this step if you only have one account to run
       - name: "Hoyolab check-in (Account 2)"
-        uses: codemasher/hoyolab-daily-checkin-action@main
+        uses: codemasher/hoyolab-daily-checkin-action@1
         with:
           cookie: ${{ secrets.ACCOUNT2 }}
           language: 'en-us'

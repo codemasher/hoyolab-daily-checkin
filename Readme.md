@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: "Hoyolab check-in (Account 1)"
-        uses: codemasher/hoyolab-daily-checkin-action@v1
+        uses: codemasher/hoyolab-daily-checkin-action@1
         with:
           cookie: ${{ secrets.ACCOUNT1 }}
           genshin: true
