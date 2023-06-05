@@ -19,9 +19,13 @@ jobs:
       - name: "Hoyolab check-in (Account 1)"
         uses: codemasher/hoyolab-daily-checkin-action@main
         with:
-          # see get-token.js
-          cookie: ${{ secrets.ACCOUNT1 }}
+          cookie: ${{ secrets.ACCOUNT1 }} # see get-token.js
           language: 'en-us'
+          account-description: "Account 1"
+          only-notify-failed: false
+          discord-notify: true
+          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
           genshin: true
           honkai3rd: true
           starrail: true
@@ -32,6 +36,11 @@ jobs:
         with:
           cookie: ${{ secrets.ACCOUNT2 }}
           language: 'en-us'
+          account-description: "Account 2"
+          only-notify-failed: false
+          discord-notify: true
+          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
           genshin: true
           honkai3rd: false
           starrail: false
