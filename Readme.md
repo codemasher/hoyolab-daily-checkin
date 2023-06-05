@@ -50,7 +50,7 @@ enter a descriptive name, paste the token from the previous step into the text b
 	<img alt="The repository secrets" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/repo-secrets.png">
 </p>
 
-It's important that you *do not log out from the Hoyolab account* - logging out will invalidate the token and you will need to repeat the previous steps and update it.
+It's important that you *do not log out from the Hoyolab account* - logging out will invalidate the token, and you will need to repeat the previous steps and update the secret(s).
 The token may expire, in which case you also need to repeat the procedure.
 
 #### Edit the workflow file
@@ -84,13 +84,13 @@ jobs:
           starrail: false
           tearsofthemis: false
 ```
-That's easy enough to understand, no? You will need to set `true` for each game you have registered with your Hoyoverse account, otherwise `false`.
+That's easy enough to understand, no? You will need to set `true` for each game you have registered with your Hoyoverse account, otherwise `false` or omit the parameter.
 If you want to check-in for more accounts, you need to duplicate the `Hoyolab check-in (Account X)` step and add secrets for each account.
 (Just be careful with the indentation, [YAML](https://en.wikipedia.org/wiki/YAML) is *very* picky about that...)
 
 When you're done editing, save/commit the file and head over to the [actions tab **(R)**](../../actions/workflows/checkin.yml) where a new workflow run should pop up.
 
-Update: it seems that editing via the web interface does not trigger a `git push` that would start a job run, so you will need to wait for the scheduled job in that case.
+*Update:* it seems that editing via the web interface does not always trigger a `git push` properly that would start a job run, so you will need to wait for the scheduled job in that case.
 
 <p align="center">
 	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
