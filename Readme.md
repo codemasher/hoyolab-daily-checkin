@@ -90,6 +90,8 @@ If you want to check-in for more accounts, you need to duplicate the `Hoyolab ch
 
 When you're done editing, save/commit the file and head over to the [actions tab **(R)**](../../actions/workflows/checkin.yml) where a new workflow run should pop up.
 
+Update: it seems that editing via the web interface does not trigger a `git push` that would start a job run, so you will need to wait for the scheduled job in that case.
+
 <p align="center">
 	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
 </p>
