@@ -1,10 +1,15 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+# https://crontab.guru/
+
 on:
+  # the workflow will run once when the main branch was updated
   push:
     branches:
       - main
-  # see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
-    - cron: "0 19 * * *"
+    # POSIX cron syntax (daily 17:00 UTC), see https://crontab.guru/#0_17_*_*_*
+    - cron: "0 17 * * *"
 
 jobs:
   hoyolab-checkin:
@@ -20,17 +25,19 @@ jobs:
         uses: codemasher/hoyolab-daily-checkin-action@main
         with:
           cookie: ${{ secrets.ACCOUNT1 }} # see get-token.js
+          genshin: true
+          honkai3rd: true
+          starrail: true
+          tearsofthemis: false
+          # optional notification settings - you can safely remove these
           language: 'en-us'
           account-description: "Account 1"
           only-notify-failed: false
           discord-notify: true
           discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
           discord-user-id: ${{ secrets.DISCORD_USER_ID }}
-          genshin: true
-          honkai3rd: true
-          starrail: true
-          tearsofthemis: false
 
+      # you can safely remove this step if you only have one account to run
       - name: "Hoyolab check-in (Account 2)"
         uses: codemasher/hoyolab-daily-checkin-action@main
         with:
