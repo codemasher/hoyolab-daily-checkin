@@ -4,11 +4,7 @@ Collect the [Hoyolab daily check-in](https://www.hoyolab.com/circles) rewards fo
 [Honkai Impact 3rd](https://honkaiimpact3.hoyoverse.com/), [Honkai Star Rail](https://hsr.hoyoverse.com/) and 
 [Tears of Themis](https://tot.hoyoverse.com/) automatically!.
 
-[![Version][version-badge]][version]
 [![Build][gh-action-badge]][gh-action]
-
-[version-badge]: https://img.shields.io/github/v/release/codemasher/hoyolab-daily-checkin-action?label=action%20version&logo=github
-[version]: https://github.com/codemasher/hoyolab-daily-checkin-action/releases
 
 <!-- change the username/repository to your own to display the build/checkin status -->
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/codemasher/hoyolab-daily-checkin/checkin.yml?branch=main&logo=github
@@ -40,7 +36,7 @@ When you hit `Enter` it will return a line similar to the following - copy that 
 ltuid=000000000; ltoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;
 ```
 <p align="center">
-	<img alt="The developer console" style="width: 500px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/get-token.png">
+	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/get-token.png">
 </p>
 
 #### Add repo secrets
@@ -51,7 +47,7 @@ Go to the [repository secrets settings **(R)**](../../settings/secrets/actions),
 enter a descriptive name, paste the token from the previous step into the text box below and save it.
 
 <p align="center">
-	<img alt="The repository secrets" style="width: 500px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/repo-secrets.png">
+	<img alt="The repository secrets" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/repo-secrets.png">
 </p>
 
 It's important that you *do not log out from the Hoyolab account* - logging out will invalidate the token and you will need to repeat the previous steps and update it.
@@ -95,7 +91,7 @@ If you want to check-in for more accounts, you need to duplicate the `Hoyolab ch
 When you're done editing, save/commit the file and head over to the [actions tab **(R)**](../../actions/workflows/checkin.yml) where a new workflow run should pop up.
 
 <p align="center">
-	<img alt="The developer console" style="width: 500px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
+	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
 </p>
 
 #### Notification settings
@@ -167,7 +163,7 @@ You can enable Discord notifications via webhook to a channel on your server. In
  ```
 
 <p align="center">
-	<img alt="The developer console" style="width: 500px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/discord-notification.png">
+	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/discord-notification.png">
 </p>
 
 ## Disclaimer
