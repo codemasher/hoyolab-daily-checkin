@@ -24,31 +24,15 @@ jobs:
       - name: "Hoyolab check-in (Account 1)"
         uses: codemasher/hoyolab-daily-checkin-action@main
         with:
-          cookie: ${{ secrets.ACCOUNT1 }} # see get-token.js
-          genshin: true
-          honkai3rd: true
-          starrail: true
-          tearsofthemis: false
-          # optional notification settings - you can safely remove these
-          language: 'en-us'
-          account-description: "Account 1"
-          only-notify-failed: false
-          discord-notify: true
-          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
-
-      # you can safely remove this step if you only have one account to run
-      - name: "Hoyolab check-in (Account 2)"
-        uses: codemasher/hoyolab-daily-checkin-action@main
-        with:
-          cookie: ${{ secrets.ACCOUNT2 }}
-          language: 'en-us'
-          account-description: "Account 2"
-          only-notify-failed: false
-          discord-notify: true
-          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
+          cookie: ${{ secrets.ADRIAEN6 }} # see get-token.js
           genshin: true
           honkai3rd: false
-          starrail: false
+          starrail: true
           tearsofthemis: false
+#           # optional notification settings - you can safely remove these
+#           language: 'en-us'
+#           account-description: "Account 1"
+#           only-notify-failed: false
+#           discord-notify: true
+#           discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+#           discord-user-id: ${{ secrets.DISCORD_USER_ID }}
