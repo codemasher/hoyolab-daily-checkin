@@ -90,7 +90,7 @@ If you want to check-in for more accounts, you need to duplicate the `Hoyolab ch
 
 When you're done editing, save/commit the file and head over to the [actions tab **(R)**](../../actions/workflows/checkin.yml) where a new workflow run should pop up.
 
-*Update:* it seems that editing via the web interface does not always trigger a `git push` properly that would start a job run, so you will need to wait for the scheduled job in that case.
+*Update:* it seems that editing via the web interface does not always trigger a `git push` event properly that would start a job run, so you will need to wait for the scheduled job in that case.
 
 <p align="center">
 	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/job-done.png">
@@ -142,6 +142,17 @@ The `account-description` setting allows you to add an account description that 
 
 ##### Only notify on failed jobs
 If you want external notifications only when a job run has failed, set `only-notify-failed` to `true` (default), set it to `false` for *all the notifications*.
+
+```yml
+      - name: "Hoyolab check-in (Account 1)"
+        uses: codemasher/hoyolab-daily-checkin-action@main
+        with:
+          cookie: ${{ secrets.ACCOUNT1 }}
+          genshin: true
+          # ...
+          only-notify-failed: true
+          # ...
+```
 
 ##### Discord notifications
 You can enable Discord notifications via webhook to a channel on your server. In order to do so , set `discord-notify` to `true` and add the 
