@@ -5,5 +5,6 @@
  * @link https://www.hoyolab.com/circles
  */
 
-let cookies = Object.fromEntries(document.cookie.split(';').map(v => v.trim().split('=')));
-console.log(['ltuid', 'ltoken'].map(name => `${name}=${cookies[name]};`).join(' '));
+let cookies = document.cookie.split(';').map(v => v.trim().split('='));
+let cookieNames = ['ltuid', 'ltoken', 'ltuid_v2', 'ltoken_v2', 'account_id_v2', 'account_mid_v2'];
+console.log(cookies.map(([k, v]) => cookieNames.includes(k) ? `${k}=${v};` : null).filter(v => v).join(' '));

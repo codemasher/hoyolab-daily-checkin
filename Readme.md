@@ -28,8 +28,9 @@ For the check-in in order to work, we need the user ID and the access token from
 Open your webbrowser, navigate to [Hoyolab Circles](https://www.hoyolab.com/circles) and log in with the hoyolab account you want to use.
 Now it gets a little bit scary: open the browser's developer console (usually by pressing `F12`), go to the "console" tab and paste the following code snippet:
 ```js
-let cookies = Object.fromEntries(document.cookie.split(';').map(v => v.trim().split('=')));
-console.log(['ltuid', 'ltoken'].map(name => `${name}=${cookies[name]};`).join(' '));
+let cookies = document.cookie.split(';').map(v => v.trim().split('='));
+let cookieNames = ['ltuid', 'ltoken', 'ltuid_v2', 'ltoken_v2', 'account_id_v2', 'account_mid_v2'];
+console.log(cookies.map(([k, v]) => cookieNames.includes(k) ? `${k}=${v};` : null).filter(v => v).join(' '));
 ```
 When you hit `Enter` it will return a line similar to the following - copy that line:
 ```
