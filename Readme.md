@@ -29,7 +29,7 @@ Open your webbrowser, navigate to [Hoyolab Circles](https://www.hoyolab.com/circ
 Now it gets a little bit scary: open the browser's developer console (usually by pressing `F12`), go to the "console" tab and paste the following code snippet:
 ```js
 let cookies = document.cookie.split(';').map(v => v.trim().split('='));
-let cookieNames = ['ltuid', 'ltoken', 'ltuid_v2', 'ltoken_v2', 'account_id_v2', 'account_mid_v2'];
+let cookieNames = ['ltuid', 'ltoken'];
 console.log(cookies.map(([k, v]) => cookieNames.includes(k) ? `${k}=${v};` : null).filter(v => v).join(' '));
 ```
 When you hit `Enter` it will return a line similar to the following - copy that line:
