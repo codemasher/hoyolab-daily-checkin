@@ -192,15 +192,16 @@ jobs:
     runs-on: ubuntu-latest
     
     strategy:
-      fail-fast: false
+      fail-fast: false # will continue to run jobs even if one has failed
       matrix:
         include:
-          - cookie: ACCOUNT1 # only the name of the cookie, variables don't work here
+          - cookie: ACCOUNT1 # only the name of the cookie secret, variables don't work here
             description: "Account 1"
             genshin: true
             honkai3rd: true
             starrail: true
             tearsofthemis: false
+          # repeat for each account  
           - cookie: ACCOUNT2
             description: "Account 2"
             genshin: true
