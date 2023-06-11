@@ -180,6 +180,55 @@ You can enable Discord notifications via webhook to a channel on your server. In
 	<img alt="The developer console" style="width: 550px; height: auto;" src="https://raw.githubusercontent.com/codemasher/hoyolab-daily-checkin/main/.github/images/discord-notification.png">
 </p>
 
+### Advanced
+
+To run several accounts on a matrix, you could do something like this:
+```yml
+jobs:
+
+  hoyolab-checkin:
+	
+    name: "Hoylab daily check-in"
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - cookie: COOKIE1
+            description: "Account 1"
+            genshin: true
+            honkai3rd: true
+            starrail: true
+            tearsofthemis: false
+          - cookie: COOKIE2
+            description: "Account 2"
+            genshin: true
+            honkai3rd: false
+            starrail: false
+            tearsofthemis: false
+
+    steps:
+
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Hoyolab check-in (acc 1)"
+        uses: ./.github/actions/test
+        with:
+          cookie: ${{ secrets[matrix.cookie] }}
+          genshin: ${{ matrix.genshin }}
+          honkai3rd: ${{ matrix.honkai3rd }}
+          starrail: ${{ matrix.starrail }}
+          tearsofthemis: ${{ matrix.tearsofthemis }}
+          language: "en-us"
+          account-description: ${{ matrix.description }}
+          only-notify-failed: false
+          discord-notify: true
+          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          discord-user-id: ${{ secrets.DISCORD_ID }}
+```
+
 ## Disclaimer
 WE'RE TOTALLY NOT RUNNING A PRODUCTION-LIKE ENVIRONMENT ON GITHUB.<br>
 WE'RE RUNNING A TEST AND POST THE RESULT TO AN EXTERNAL WEBSITE.<br>
