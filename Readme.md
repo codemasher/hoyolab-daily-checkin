@@ -195,13 +195,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - cookie: COOKIE1
+          - cookie: ACCOUNT1 # only the name of the cookie, variables don't work here
             description: "Account 1"
             genshin: true
             honkai3rd: true
             starrail: true
             tearsofthemis: false
-          - cookie: COOKIE2
+          - cookie: ACCOUNT2
             description: "Account 2"
             genshin: true
             honkai3rd: false
@@ -213,8 +213,8 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v3
 
-      - name: "Hoyolab check-in (acc 1)"
-        uses: ./.github/actions/test
+      - name: "Hoyolab check-in"
+        uses: codemasher/hoyolab-daily-checkin-action@main
         with:
           cookie: ${{ secrets[matrix.cookie] }}
           genshin: ${{ matrix.genshin }}
