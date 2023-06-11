@@ -187,7 +187,7 @@ To run several accounts on a matrix, you could do something like this:
 jobs:
 
   hoyolab-checkin:
-	
+
     name: "Hoylab daily check-in"
     runs-on: ubuntu-latest
     
