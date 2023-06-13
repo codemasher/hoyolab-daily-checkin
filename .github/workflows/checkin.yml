@@ -9,46 +9,63 @@ on:
       - main
   schedule:
     # POSIX cron syntax (daily 17:00 UTC), see https://crontab.guru/#0_17_*_*_*
-    - cron: "0 17 * * *"
+    - cron: "15 22 * * *"
 
 jobs:
+
   hoyolab-checkin:
 
-    name: "Hoyolab daily check-in"
+    name: "Hoylab daily check-in"
     runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false # will continue to run jobs even if one has failed
+      matrix:
+        include:
+          - cookie: ACCOUNT1 # only the name of the cookie secret, variables don't work here
+            description: "Account 1"
+            genshin: true
+            honkai3rd: false
+            starrail: true
+            tearsofthemis: false
+          # repeat for each account  
+          - cookie: ACCOUNT2
+            description: "Account 2"
+            genshin: true
+            honkai3rd: false
+            starrail: false
+            tearsofthemis: false
+          # repeat for each account  
+          - cookie: ACCOUNT3
+            description: "Account 3"
+            genshin: true
+            honkai3rd: false
+            starrail: false
+            tearsofthemis: false
+          # repeat for each account  
+          - cookie: ACCOUNT4
+            description: "Account 4"
+            genshin: true
+            honkai3rd: false
+            starrail: true
+            tearsofthemis: false
+
     steps:
 
       - name: "Checkout"
         uses: actions/checkout@v3
 
-      - name: "Hoyolab check-in (Account 1)"
+      - name: "Hoyolab check-in"
         uses: codemasher/hoyolab-daily-checkin-action@main
         with:
-          cookie: ${{ secrets.ACCOUNT1 }} # see get-token.js
-          genshin: true
-          honkai3rd: true
-          starrail: true
-          tearsofthemis: false
-          # optional notification settings - you can safely remove these
-          language: 'en-us'
-          account-description: "Account 1"
+          cookie: ${{ secrets[matrix.cookie] }}
+          genshin: ${{ matrix.genshin }}
+          honkai3rd: ${{ matrix.honkai3rd }}
+          starrail: ${{ matrix.starrail }}
+          tearsofthemis: ${{ matrix.tearsofthemis }}
+          language: "ru-ru"
+          account-description: ${{ matrix.description }}
           only-notify-failed: false
           discord-notify: true
           discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
-
-      # you can safely remove this step if you only have one account to run
-      - name: "Hoyolab check-in (Account 2)"
-        uses: codemasher/hoyolab-daily-checkin-action@main
-        with:
-          cookie: ${{ secrets.ACCOUNT2 }}
-          language: 'en-us'
-          account-description: "Account 2"
-          only-notify-failed: false
-          discord-notify: true
-          discord-webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          discord-user-id: ${{ secrets.DISCORD_USER_ID }}
-          genshin: true
-          honkai3rd: false
-          starrail: false
-          tearsofthemis: false
+          discord-user-id: ${{ secrets.DISCORD_ID }}
