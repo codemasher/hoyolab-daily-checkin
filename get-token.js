@@ -10,5 +10,4 @@
  */
 
 let cookies = document.cookie.split(';').map(v => v.trim().split('='));
-let cookieNames = ['ltuid', 'ltoken'];
-console.log(cookies.map(([k, v]) => cookieNames.includes(k) ? `${k}=${v};` : null).filter(v => v).join(' '));
+console.log(cookies.map(([k, v]) => ['ltuid', 'ltoken'].includes(k) ? `${k}=${v};` : null).filter(v => v).join(' '));
